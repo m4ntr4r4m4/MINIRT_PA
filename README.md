@@ -1,0 +1,2 @@
+# MINIRT_PA
+project mini ray tracer by ABDELGHANI HAMMOUD AND PERU RIEZU MUNOZ
