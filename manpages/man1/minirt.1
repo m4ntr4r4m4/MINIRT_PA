@@ -1,0 +1,249 @@
+.\".P paragraph
+.\".B make text bold
+.\"\[dq] duble quote character
+.\"\fI make font italic
+.\"\fR make font regular font if set to another font
+.\".br add line break
+
+
+.TH minirt 1 "october 2023"
+
+.SH NAME
+\fBminirt\fR - A minimalist ray tracer able to render scenes described in .rt files.
+
+.SH SYNOPSIS
+\fB./minirt\fR \fBSCENE_FILE\fR
+
+.SH OPTIONS
+.TP
+.BR SCENE_FILE
+A file with a .rt extension that describes a scene using the supported language.
+
+.SH DESCRIPTION
+The minirt program generates images using ray tracing technics and shows them on the screen.
+The image is the representation of a scene described in a .rt file passed as an argument to the program.
+The scene is composed of any amount of spheres, planes, and cylinders. It must contain a single camera.
+And it might contain a value of ambient lighting and a light source.
+.P
+The .rt file describes the scene by defining its elements, with each element defined on its own line.
+Elements can be separated by any number of empty lines, and the descriptors of each element, i.e.,
+the information about the element can be separated by any number of spaces.  There is no specific order
+in which elements must be declared, but each type of element has a specific order of descriptors that must be
+followed, after the last descriptor, all the text of the line is ignored, so comments can be written.
+Floating-point values in the .rt file must be formatted to fully match the regex
+(-?[0-9]{0,19}(\\\.[0-9]{1,18})?), e.g. 1.124, -0.1234.
+.P
+The elements that can be defined are:
+.TP
+.BR "Ambient lighting"
+This element defines an amount of light, that reaches equally every object of the scene. This can help make shadows
+softer, as the program only simulates a ray for a limited number of bounces, which can lead to harder shadows than
+those in the real world. This element does not have to be declared, but it can not be declared more than once.
+The syntax for declaring the \[dq]Ambient lighting\[dq] element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] brightness color
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the ambient lighting element it must be the character 'A'.
+.RE
+.BR Brightness
+.RS
+A floating point value, in the range of 0 to 1 both included, is used to indicate the intensity of the
+ambient lighting.
+.RE
+.br
+.BR Color
+.RS
+Three integer values, in the range of 0 to 255 both included, separated by commas, representing
+the red, green, and blue values, that can be absorbed from the light.
+.RE 0
+.TP
+.BR Camera
+.br
+The camera is the element that receives the simulated rays in the scene. Changing the position, direction, and
+field of view of the camera will show different perspectives of the scene. This element must be defined once.
+The syntax for declaring this element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] position direction \[dq]field of view\[dq]
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the camera element it must be the character 'C'.
+.RE
+.BR Position
+.RS
+The three-dimensional coordinates of the camera's position, given as three floating point numbers separated by commas,
+e.g. 12.3,-1.2,0.0. 
+.RE
+.br
+.BR Direction
+.RS
+A normalized three-dimensional vector, given as three floating point numbers separated by commas.
+Pointing in the direction from which the camera will receive light. e.g. 0,-0.0,1. Due to rounding
+errors in floating point operations, the actual length of the vector may be slightly greater or less than 1,
+but each element of the vector must be within the range of -1 to 1.
+.RE
+.br
+.BR "Field of view"
+.RS
+The field of view descriptor determines the horizontal field of view. Is given as a floating point value in the range
+of 0 to 180, and determines how wide, the region from which the light is received is.
+.RE 0
+.TP
+.BR Light
+.br
+The light element declares a light source, that is an object that emits light. Its brightness, color, and position
+can be defined. This element does not have to be declared, but can not be declared more than once. The syntax for
+declaring this element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] position brightness color
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the light element it must be the character 'L'.
+.RE
+.BR Position
+.RS
+The three-dimensional coordinates of the lights's position, given as three floating point numbers separated by commas,
+e.g. 12.3,-1.2,0.0.
+.RE
+.br
+.BR Brightness
+.RS
+A floating point value, in the range of 0 to 1 both included, is used to indicate the intensity of the light emitted.
+.RE
+.br
+.BR Color
+.RS
+Three integer values, in the range of 0 to 255 both included, separated by commas, representing
+the red, green, and blue values, that can be absorbed from the light.
+.RE 0
+.TP
+.BR Sphere
+.br
+A sphere, with color, size, and position. This element may be declared any number of times.
+The syntax for declaring this element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] position diameter color
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the sphere element it must be the characters 'sp'.
+.RE
+.BR Position
+.RS
+The three-dimensional coordinates of the sphere's position, given as three floating point numbers separated by commas,
+e.g. 12.3,-1.2,0.0. 
+.RE
+.br
+.BR Diameter
+.RS
+A floating point value no less than 0, is used to indicate the diameter of the sphere.
+.RE
+.br
+.BR Color
+.RS
+Three integer values, in the range of 0 to 255 both included, separated by commas, representing
+the red, green, and blue values, which will be used to calculete the diffuse reflection, of the
+light that reaches the sphere.
+.RE 0
+.TP
+.BR Plane
+.br
+An infinite plane, with a given position, direction, and color.  This element may be
+declared any number of times. The syntax for declaring this element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] position normal color
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the plane element it must be the character 'pl'.
+.RE
+.BR Position
+.RS
+The three-dimensional coordinates of the plane's position, given as three floating point numbers separated by commas,
+e.g. 12.3,-1.2,0.0. 
+.RE
+.br
+.BR Normal
+.RS
+A normalized three-dimensional vector, given as three floating point numbers separated by commas.
+Pointing in a direction orthogonal to the plane. Due to rounding errors in floating point operations,
+the actual length of the vector may be slightly greater or less than 1, but each element of the vector must
+be within the range of -1 to 1.
+.RE
+.br
+.BR Color
+.RS
+Three integer values, in the range of 0 to 255 both included, separated by commas, representing
+the red, green, and blue values, which will be used to calculete the diffuse reflection, of the
+light that reaches the plane.
+.RE 0
+.TP
+.BR Cylinder
+.br
+A cylinder, with a given position, diameter, height, orientation, and color.  This element may
+be declared any number of times. The syntax for declaring this element is as follows:
+.P
+.RS 
+\[dq]element type\[dq] position direction diameter height color
+.br
+.RS
+.BR "Element type"
+.RS
+For declaring the cylinder element it must be the character 'cy'.
+.RE
+.BR Position
+.RS
+The three-dimensional coordinates of the cylinder's position, given as three floating point numbers separated by commas,
+e.g. 12.3,-1.2,0.0. 
+.RE
+.br
+.BR Direction
+.RS
+A normalized three-dimensional vector, given as three floating point numbers separated by commas.
+Pointing in the direction of the axis of the cylinder. E.g. 0,-0.0,1. Due to rounding
+errors in floating point operations, the actual length of the vector may be slightly greater or less than 1,
+but each element of the vector must be within the range of -1 to 1.
+.RE
+.br
+.BR Diameter
+.RS
+A floating point value no less than 0, is used to indicate the diameter of the cylinder.
+.RE
+.br
+.BR Height
+.RS
+A floating point value no less than 0, is used to indicate the height of the cylinder.
+.RE
+.br
+.BR Color
+.RS
+Three integer values, in the range of 0 to 255 both included, separated by commas, representing
+the red, green, and blue values, which will be used to calculete the diffuse reflection, of the
+light that reaches the cylinder.
+.RE 0
+.TP
+
+
+
+
+
+.\".SH TIPS
+.\"tips if any
+
+.\".SH SEE ALSO
+.\"\fBmanpage_name\fR(manpage_number) sumary of manpage.
+.\".br
+.\"\fBmanpage_name\fR(manpage_number) sumary of manpage.

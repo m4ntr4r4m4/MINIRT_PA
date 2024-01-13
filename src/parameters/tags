@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFSIZE	get_parameters.c	48;"	d	file:
+MAX_LINE_SIZE	get_parameters.c	47;"	d	file:
+PARAMETERS_H	parameters.h	14;"	d
+add_to_count	get_parameters.c	/^static void	add_to_count(t_element_count *element_count, t_line *line,$/;"	f	file:
+add_to_count_internal	get_parameters.c	/^static void	add_to_count_internal(t_line *line, t_element_count *element_count, int lineno)$/;"	f	file:
+ambient_lightning	parameters.h	/^	long double	ambient_lightning;$/;"	m	struct:s_ambient_lightning
+ambient_lightning	parameters.h	/^	t_ambient_lightning	ambient_lightning;$/;"	m	struct:s_parametes
+ambient_lightning_count	parameters.h	/^	int		ambient_lightning_count;$/;"	m	struct:s_element_count
+brightness	parameters.h	/^	long double		brightness;$/;"	m	struct:s_light
+buf	get_parameters.c	/^	char	buf[BUFSIZE];$/;"	m	struct:s_buffer	file:
+camera	parameters.h	/^	t_camera			camera;$/;"	m	struct:s_parametes
+camera_count	parameters.h	/^	int		camera_count;$/;"	m	struct:s_element_count
+color	parameters.h	/^	t_color			color;$/;"	m	struct:s_cylinder
+color	parameters.h	/^	t_color			color;$/;"	m	struct:s_light
+color	parameters.h	/^	t_color			color;$/;"	m	struct:s_plane
+color	parameters.h	/^	t_color			color;$/;"	m	struct:s_sphere
+color	parameters.h	/^	t_color		color;$/;"	m	struct:s_ambient_lightning
+count_elements	get_parameters.c	/^static t_element_count	count_elements(char *filename)$/;"	f	file:
+count_failed	parameters.h	/^	bool	count_failed;$/;"	m	struct:s_element_count
+cylinder_count	parameters.h	/^	int		cylinder_count;$/;"	m	struct:s_element_count
+cylinder_list	parameters.h	/^	t_cylider_list		cylinder_list;$/;"	m	struct:s_parametes
+diameter	parameters.h	/^	long double		diameter;$/;"	m	struct:s_cylinder
+diameter	parameters.h	/^	long double		diameter;$/;"	m	struct:s_sphere
+field_of_view	parameters.h	/^	long double		field_of_view;$/;"	m	struct:s_camera
+filename_extension_correct	get_parameters.c	/^static bool	filename_extension_correct(char *filename)$/;"	f	file:
+get_char_from_buf	get_parameters.c	/^static char	get_char_from_buf(t_buffer *buf, int fileno)$/;"	f	file:
+get_parameters	get_parameters.c	/^t_parameters	get_parameters(char *filename)$/;"	f
+height	parameters.h	/^	long double		height;$/;"	m	struct:s_cylinder
+index	get_parameters.c	/^	int		index;$/;"	m	struct:s_buffer	file:
+io_error	get_parameters.c	/^	bool	io_error;$/;"	m	struct:s_buffer	file:
+is_initialized	parameters.h	/^	bool			is_initialized;$/;"	m	struct:s_camera
+is_initialized	parameters.h	/^	bool			is_initialized;$/;"	m	struct:s_light
+is_initialized	parameters.h	/^	bool		is_initialized;$/;"	m	struct:s_ambient_lightning
+is_initialized	parameters.h	/^	bool		is_initialized;$/;"	m	struct:s_sphere_list
+is_initialized	parameters.h	/^	bool	is_initialized;$/;"	m	struct:s_cylider_list
+is_initialized	parameters.h	/^	bool	is_initialized;$/;"	m	struct:s_plane_list
+is_valid_id	get_parameters.c	/^static bool	is_valid_id(char **valid_element_ids, t_line *line)$/;"	f	file:
+light	parameters.h	/^	t_light				light;$/;"	m	struct:s_parametes
+light_count	parameters.h	/^	int		light_count;$/;"	m	struct:s_element_count
+line	get_parameters.c	/^	char	line[MAX_LINE_SIZE];$/;"	m	struct:s_line	file:
+load_line	get_parameters.c	/^static void	load_line(t_line *line, t_buffer *buf, int fileno)$/;"	f	file:
+orientation_vector	parameters.h	/^	t_vector		orientation_vector;$/;"	m	struct:s_camera
+orientation_vector	parameters.h	/^	t_vector		orientation_vector;$/;"	m	struct:s_cylinder
+orientation_vector	parameters.h	/^	t_vector		orientation_vector;$/;"	m	struct:s_plane
+parameters_valid	parameters.h	/^	bool				parameters_valid;$/;"	m	struct:s_parametes
+plane_count	parameters.h	/^	int		plane_count;$/;"	m	struct:s_element_count
+plane_list	parameters.h	/^	t_cylinder	*plane_list;$/;"	m	struct:s_cylider_list
+plane_list	parameters.h	/^	t_plane	*plane_list;$/;"	m	struct:s_plane_list
+plane_list	parameters.h	/^	t_plane_list		plane_list;$/;"	m	struct:s_parametes
+position	parameters.h	/^	t_coordinate	position;$/;"	m	struct:s_camera
+position	parameters.h	/^	t_coordinate	position;$/;"	m	struct:s_cylinder
+position	parameters.h	/^	t_coordinate	position;$/;"	m	struct:s_light
+position	parameters.h	/^	t_coordinate	position;$/;"	m	struct:s_plane
+position	parameters.h	/^	t_coordinate	position;$/;"	m	struct:s_sphere
+print_usage	print_usage.c	/^void	print_usage(void)$/;"	f
+read_file	get_parameters.c	/^static void	read_file(t_line *line, t_buffer *buf, t_element_count *element_count,$/;"	f	file:
+s_ambient_lightning	parameters.h	/^typedef struct s_ambient_lightning$/;"	s
+s_buffer	get_parameters.c	/^typedef struct s_buffer$/;"	s	file:
+s_camera	parameters.h	/^typedef struct s_camera$/;"	s
+s_cylider_list	parameters.h	/^typedef struct s_cylider_list$/;"	s
+s_cylinder	parameters.h	/^typedef struct s_cylinder$/;"	s
+s_element_count	parameters.h	/^typedef struct s_element_count$/;"	s
+s_light	parameters.h	/^typedef struct s_light$/;"	s
+s_line	get_parameters.c	/^typedef struct s_line$/;"	s	file:
+s_parametes	parameters.h	/^typedef struct s_parametes$/;"	s
+s_plane	parameters.h	/^typedef struct s_plane$/;"	s
+s_plane_list	parameters.h	/^typedef struct s_plane_list$/;"	s
+s_sphere	parameters.h	/^typedef struct s_sphere$/;"	s
+s_sphere_list	parameters.h	/^typedef struct s_sphere_list$/;"	s
+size	get_parameters.c	/^	int		size;$/;"	m	struct:s_buffer	file:
+size	get_parameters.c	/^	int		size;$/;"	m	struct:s_line	file:
+size	parameters.h	/^	int			size;$/;"	m	struct:s_sphere_list
+size	parameters.h	/^	int		size;$/;"	m	struct:s_cylider_list
+size	parameters.h	/^	int		size;$/;"	m	struct:s_plane_list
+sphere_count	parameters.h	/^	int		sphere_count;$/;"	m	struct:s_element_count
+sphere_list	parameters.h	/^	t_sphere	*sphere_list;$/;"	m	struct:s_sphere_list
+sphere_list	parameters.h	/^	t_sphere_list		sphere_list;$/;"	m	struct:s_parametes
+t_ambient_lightning	parameters.h	/^}t_ambient_lightning;$/;"	t	typeref:struct:s_ambient_lightning
+t_buffer	get_parameters.c	/^}t_buffer;$/;"	t	typeref:struct:s_buffer	file:
+t_camera	parameters.h	/^}t_camera;$/;"	t	typeref:struct:s_camera
+t_cylider_list	parameters.h	/^}t_cylider_list;$/;"	t	typeref:struct:s_cylider_list
+t_cylinder	parameters.h	/^}t_cylinder;$/;"	t	typeref:struct:s_cylinder
+t_element_count	parameters.h	/^}t_element_count;$/;"	t	typeref:struct:s_element_count
+t_light	parameters.h	/^}t_light;$/;"	t	typeref:struct:s_light
+t_line	get_parameters.c	/^}t_line;$/;"	t	typeref:struct:s_line	file:
+t_parameters	parameters.h	/^}t_parameters;$/;"	t	typeref:struct:s_parametes
+t_plane	parameters.h	/^}t_plane;$/;"	t	typeref:struct:s_plane
+t_plane_list	parameters.h	/^}t_plane_list;$/;"	t	typeref:struct:s_plane_list
+t_sphere	parameters.h	/^}t_sphere;$/;"	t	typeref:struct:s_sphere
+t_sphere_list	parameters.h	/^}t_sphere_list;$/;"	t	typeref:struct:s_sphere_list
