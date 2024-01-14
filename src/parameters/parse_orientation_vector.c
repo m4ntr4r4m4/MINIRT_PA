@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/19 23:36:48                                            */
-/*   Updated:  2023/11/10 19:30:27                                            */
+/*   Updated:  2024/01/14 11:57:40                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	check_comma(t_line *line, int *i, bool *parsing_error,
 				size_t lineno)
@@ -73,5 +67,3 @@ t_vector	parse_orientation_vector(t_line *line, int *i, bool *parsing_error,
 	check_normal(orientation, parsing_error, lineno);
 	return (orientation);
 }
-
-#pragma clang diagnostic pop

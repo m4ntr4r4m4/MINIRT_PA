@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/07 20:35:22                                            */
-/*   Updated:  2023/10/09 12:44:03                                            */
+/*   Updated:  2024/01/14 11:56:24                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "../libft/libft.h"
 #include <stdbool.h>
 #include <stddef.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	there_is_match(t_line *line, const char *id, int i)
 {
@@ -63,5 +57,3 @@ bool	is_valid_id(const char **valid_element_ids, t_line *line)
 	}
 	return (false);
 }
-
-#pragma clang diagnostic pop

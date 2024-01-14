@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/19 21:29:44                                            */
-/*   Updated:  2023/11/10 18:57:47                                            */
+/*   Updated:  2024/01/14 11:58:02                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <stdio.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	check_space(t_line *line, int i, bool *parsing_error,
 				size_t lineno)
@@ -122,5 +116,3 @@ void	set_camera(char *filename, t_parameters *parameters)
 	set_camera_internal(parameters, fileno);
 	close(fileno);
 }
-
-#pragma clang diagnostic pop

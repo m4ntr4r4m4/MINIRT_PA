@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/07 20:59:04                                            */
-/*   Updated:  2023/10/13 18:08:27                                            */
+/*   Updated:  2024/01/14 11:53:59                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static uintmax_t	get_magnitude(uintmax_t n)
 {
@@ -57,5 +51,3 @@ void	ft_putnbr_fileno(int fileno, uintmax_t nbr)
 	}
 	write(fileno, str, (size_t)i);
 }
-
-#pragma clang diagnostic pop

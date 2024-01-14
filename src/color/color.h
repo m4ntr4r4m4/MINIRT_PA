@@ -6,18 +6,12 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/03 23:50:07                                            */
-/*   Updated:  2023/11/14 18:21:32                                            */
+/*   Updated:  2024/01/14 11:52:14                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLOR_H
 # define COLOR_H
-
-;
-# pragma clang diagnostic push
-# pragma clang diagnostic warning "-Weverything"
-# pragma clang diagnostic ignored "-Wempty-translation-unit"
-# pragma clang diagnostic ignored "-Wunused-macros"
 
 typedef struct s_color
 {
@@ -30,7 +24,5 @@ typedef struct s_color
 t_color	color_add(t_color c1, t_color c2);
 t_color	color_absorb(t_color c1, t_color c2);
 t_color	color_multiply(t_color c1, long double s);
-
-# pragma clang diagnostic pop
 
 #endif

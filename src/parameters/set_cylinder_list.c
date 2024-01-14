@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/21 08:22:29                                            */
-/*   Updated:  2023/11/14 23:45:44                                            */
+/*   Updated:  2024/01/14 11:58:09                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static void	set_cylinder_list_internal(t_parameters *parameters, int fileno)
 {
@@ -82,5 +76,3 @@ void	set_cylinder_list(char *filename, t_element_count element_count,
 	set_cylinder_list_internal(parameters, fileno);
 	close(fileno);
 }
-
-#pragma clang diagnostic pop

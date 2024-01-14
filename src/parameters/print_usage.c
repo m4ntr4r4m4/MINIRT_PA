@@ -6,18 +6,12 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/06 18:09:42                                            */
-/*   Updated:  2023/10/07 21:33:00                                            */
+/*   Updated:  2024/01/14 11:57:46                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parameters.h"
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 void	print_usage(void)
 {
@@ -29,5 +23,3 @@ void	print_usage(void)
 
 	write(STDOUT_FILENO, msg, sizeof(msg));
 }
-
-#pragma clang diagnostic pop

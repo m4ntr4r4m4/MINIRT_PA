@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/06 18:23:36                                            */
-/*   Updated:  2023/10/14 01:42:49                                            */
+/*   Updated:  2024/01/14 11:56:16                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "parameters.h"
 #include <stdbool.h>
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	filename_extension_correct(char *filename)
 {
@@ -60,5 +54,3 @@ t_parameters	get_parameters(char *filename)
 	parameters = get_parameters_internal(filename, element_count);
 	return (parameters);
 }
-
-#pragma clang diagnostic pop

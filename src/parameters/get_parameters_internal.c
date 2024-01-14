@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/13 18:37:45                                            */
-/*   Updated:  2023/10/21 08:22:37                                            */
+/*   Updated:  2024/01/14 11:56:08                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 t_parameters	get_parameters_internal(char *filename,
 					t_element_count element_count)
@@ -40,5 +34,3 @@ t_parameters	get_parameters_internal(char *filename,
 	set_cylinder_list(filename, element_count, &parameters);
 	return (parameters);
 }
-
-#pragma clang diagnostic pop
