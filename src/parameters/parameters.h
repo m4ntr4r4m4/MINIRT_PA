@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   Filename: parameters.h                                                   */
+/*   parameters.h                                       :+:      :+:    :+:   */
 /*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/03 21:56:50                                            */
-/*   Updated:  2024/01/14 11:56:43                                            */
+/*   Updated: 2024/01/14 14:30:19 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct s_parametes
 	t_plane_list		plane_list;
 	t_cylider_list		cylinder_list;
 	bool				parameters_valid;
+	t_color 		color;
 }t_parameters;
 
 typedef struct s_element_count

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   Filename: vector.h                                                       */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/03 23:44:35                                            */
-/*   Updated:  2024/01/14 11:59:36                                            */
+/*   Updated: 2024/01/14 13:45:37 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_vector	substract(t_vector v1, t_vector v2);
 t_vector	add(t_vector v1, t_vector v2);
 long double	get_magnitude(t_vector v1);
 long double	dot_product(t_vector v1, t_vector v2);
+t_vector	vector(long double x, long double y, long double z);
 
 #endif
