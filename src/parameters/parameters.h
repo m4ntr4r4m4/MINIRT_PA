@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/03 21:56:50                                            */
-/*   Updated:  2023/11/14 23:45:57                                            */
+/*   Updated:  2024/01/14 11:56:43                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <stddef.h>
 # include "../vector/vector.h"
 # include "../color/color.h"
-
-;
-# pragma clang diagnostic push
-# pragma clang diagnostic warning "-Weverything"
-# pragma clang diagnostic ignored "-Wempty-translation-unit"
-# pragma clang diagnostic ignored "-Wunused-macros"
 
 # define MAX_LINE_SIZE 1000
 # define BUFSIZE 10000
@@ -161,7 +155,5 @@ void			set_cylinder_list(char *filename, t_element_count element_count,
 					t_parameters *parameters);
 t_cylinder		parse_cylinder(t_line *line, bool *parsing_error,
 					size_t lineno);
-
-# pragma clang diagnostic pop
 
 #endif

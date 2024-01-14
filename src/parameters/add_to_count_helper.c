@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/07 20:42:38                                            */
-/*   Updated:  2023/10/21 08:03:21                                            */
+/*   Updated:  2024/01/14 11:55:36                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <limits.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static void	check_camera(t_line *line,
 				t_element_count *element_count, size_t i, size_t lineno)
@@ -126,5 +120,3 @@ void	add_to_count_helper(t_line *line,
 		element_count->plane_count++;
 	}
 }
-
-#pragma clang diagnostic pop

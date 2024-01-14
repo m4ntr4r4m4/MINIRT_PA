@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/09/25 17:27:48                                            */
-/*   Updated:  2023/10/22 13:49:02                                            */
+/*   Updated:  2024/01/14 11:59:46                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 int	main(int argc, char **argv)
 {
@@ -142,5 +136,3 @@ int	main(int argc, char **argv)
 		}
 	}
 }*/
-
-#pragma clang diagnostic pop

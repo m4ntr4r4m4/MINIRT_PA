@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/18 16:19:52                                            */
-/*   Updated:  2023/11/10 18:57:32                                            */
+/*   Updated:  2024/01/14 11:57:55                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	check_for_space_float(char c, bool *parsing_error,
 				size_t lineno, long double x)
@@ -108,5 +102,3 @@ void	set_ambient_lighting(char *filename, t_element_count element_count,
 	set_ambient_lighting_internal(parameters, fileno);
 	close(fileno);
 }
-
-#pragma clang diagnostic pop

@@ -6,17 +6,11 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/11/12 18:36:52                                            */
-/*   Updated:  2023/11/14 18:20:50                                            */
+/*   Updated:  2024/01/14 11:52:04                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 t_color	color_add(t_color c1, t_color c2)
 {
@@ -70,5 +64,3 @@ t_color	color_multiply(t_color c1, long double s)
 	return ((t_color){.r = (unsigned char)r, .g = (unsigned char)g,
 		.b = (unsigned char)b});
 }
-
-#pragma clang diagnostic pop

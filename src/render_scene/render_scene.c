@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   render_scene.c                                     :+:      :+:    :+:   */
+/*   Filename: render_scene.c                                                 */
 /*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/22 13:28:58                                            */
-/*   Updated: 2024/01/13 13:52:08 by ahammoud         ###   ########.fr       */
+/*   Updated:  2024/01/14 11:59:10                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
-#pragma clang diagnostic ignored "-Wpadded"
 
 #define WIDTH 960
 #define HEIGHT 720
@@ -124,5 +117,3 @@ void	render_scene(t_parameters parameters)
 	write(STDERR_FILENO, "This system not supported, aborting\n", 35);
 	destroy_and_exit(&hook_parameters);
 }
-
-#pragma clang diagnostic pop

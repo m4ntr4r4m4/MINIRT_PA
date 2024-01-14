@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/18 16:23:54                                            */
-/*   Updated:  2023/10/20 06:17:51                                            */
+/*   Updated:  2024/01/14 11:57:33                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "../libft/libft.h"
 #include <stddef.h>
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 _Static_assert(sizeof(unsigned long int) == 8,
 	"Code is not portable to this system\n");
@@ -107,5 +101,3 @@ long double	parse_float(t_line *line, int *i, bool *parsing_error,
 	}
 	return (parse_float_internal(line, i));
 }
-
-#pragma clang diagnostic pop

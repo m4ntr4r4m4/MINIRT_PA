@@ -6,19 +6,13 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/07 19:54:14                                            */
-/*   Updated:  2023/10/21 11:40:39                                            */
+/*   Updated:  2024/01/14 11:56:31                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parameters.h"
 #include "../libft/libft.h"
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 char	first_char_of_line(t_line *line)
 {
@@ -77,5 +71,3 @@ void	load_line(t_line *line, t_buffer *buf, int fileno)
 	}
 	line->size = i;
 }
-
-#pragma clang diagnostic pop

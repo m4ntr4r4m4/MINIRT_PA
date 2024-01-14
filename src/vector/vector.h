@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/03 23:44:35                                            */
-/*   Updated:  2023/11/10 18:43:15                                            */
+/*   Updated:  2024/01/14 11:59:36                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include <math.h>
 # include <stdbool.h>
-
-;
-# pragma clang diagnostic push
-# pragma clang diagnostic warning "-Weverything"
-# pragma clang diagnostic ignored "-Wempty-translation-unit"
-# pragma clang diagnostic ignored "-Wunused-macros"
 
 typedef struct s_vector
 {
@@ -37,7 +31,5 @@ t_vector	substract(t_vector v1, t_vector v2);
 t_vector	add(t_vector v1, t_vector v2);
 long double	get_magnitude(t_vector v1);
 long double	dot_product(t_vector v1, t_vector v2);
-
-# pragma clang diagnostic pop
 
 #endif

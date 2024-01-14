@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/18 17:30:30                                            */
-/*   Updated:  2023/10/20 08:31:10                                            */
+/*   Updated:  2024/01/14 11:57:07                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 #include <stddef.h>
 #include <unistd.h>
 #include <fcntl.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static unsigned char	get_color(t_line *line, int *i, bool *parsing_error)
 {
@@ -90,5 +84,3 @@ t_color	parse_color(t_line *line, int *i, bool *parsing_error, size_t lineno)
 	check_for_space(line, i, parsing_error, lineno);
 	return (color);
 }
-
-#pragma clang diagnostic pop

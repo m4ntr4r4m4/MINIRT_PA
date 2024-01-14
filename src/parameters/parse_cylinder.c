@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/21 08:49:29                                            */
-/*   Updated:  2023/11/10 18:56:24                                            */
+/*   Updated:  2024/01/14 11:57:22                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "../libft/libft.h"
 #include <stdbool.h>
 #include <unistd.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static bool	check_space(t_line *line, int i, bool *parsing_error,
 				size_t lineno)
@@ -107,5 +101,3 @@ t_cylinder	parse_cylinder(t_line *line, bool *parsing_error,
 	cylinder.color = parse_color(line, &i, parsing_error, lineno);
 	return (cylinder);
 }
-
-#pragma clang diagnostic pop

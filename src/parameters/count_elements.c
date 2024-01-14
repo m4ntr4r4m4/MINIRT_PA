@@ -6,7 +6,7 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/07 19:49:21                                            */
-/*   Updated:  2023/10/20 06:26:50                                            */
+/*   Updated:  2024/01/14 11:55:49                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 static void	add_to_count(t_element_count *element_count, t_line *line,
 				size_t lineno)
@@ -96,5 +90,3 @@ t_element_count	count_elements(char *filename)
 	close(fileno);
 	return (element_count);
 }
-
-#pragma clang diagnostic pop

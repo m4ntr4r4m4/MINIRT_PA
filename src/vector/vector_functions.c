@@ -6,19 +6,13 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/20 00:13:37                                            */
-/*   Updated:  2023/11/10 19:03:22                                            */
+/*   Updated:  2024/01/14 11:59:19                                            */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 #include <stdbool.h>
 #include <math.h>
-
-;
-#pragma clang diagnostic push
-#pragma clang diagnostic warning "-Weverything"
-#pragma clang diagnostic ignored "-Wempty-translation-unit"
-#pragma clang diagnostic ignored "-Wunused-macros"
 
 bool	is_normal(t_vector v)
 {
@@ -57,5 +51,3 @@ long double	dot_product(t_vector v1, t_vector v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
-
-#pragma clang diagnostic pop
