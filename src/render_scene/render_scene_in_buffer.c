@@ -6,92 +6,90 @@
 /*   github:   https://github.com/priezu-m                                    */
 /*   Licence:  GPLv3                                                          */
 /*   Created:  2023/10/23 08:56:27                                            */
-/*   Updated: 2024/01/19 20:07:19 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:08:09 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render_scene.h"
-# include "ray.h"
+#include "ray.h"
 #include "stdlib.h"
 #include <math.h>
 #include <stdio.h>
 
-t_ray	init_ray(t_vars *vars,  double u, double v)
+t_ray	init_ray(t_vars *vars, double u, double v)
 {
-	t_ray ray;
+	t_ray	ray;
 
 	ray.origin = vars->camera.origin;
-	ray.direction =  vecnormalize(vecplus(vars->camera.direction ,  vecplus( vecscale(vars->camera.right, u), vecscale(vars->camera.up, v))));
+	ray.direction = vecnormalize(vecplus(vars->camera.direction, \
+					vecplus(vecscale(vars->camera.right, u), \
+					vecscale(vars->camera.up, v))));
 	return (ray);
 }
-unsigned int trace_ray(t_vars* vars, t_ray ray)
-{
-	double t;
-	double closest_t;
-	int sphere_idx;
-	int plane_idx;
-	int cy_idx;
 
-	closest_t = INFINITY;
-	sphere_idx = -1;
-	plane_idx = -1;
-	cy_idx = -1;
+unsigned int	trace_ray(t_vars *vars, t_ray ray)
+{
+	double	t;
+
+	vars->closest_t = INFINITY;
+	vars->sphere_idx = -1;
+	vars->plane_idx = -1;
+	vars->cy_idx = -1;
 	for (size_t i = 0; i < vars->sp_size; i++)
 	{
-		if(sphere_intersaction(vars, ray, &t, vars->spheres[i]) && t < closest_t)		
+		if(sphere_intersaction(vars, ray, &t, vars->spheres[i]) && t < vars->closest_t)		
 		{
-			closest_t = t;
-			sphere_idx = i;
-			plane_idx = -1;
-			cy_idx = -1;
+			vars->closest_t = t;
+			vars->sphere_idx = i;
+			vars->plane_idx = -1;
+			vars->cy_idx = -1;
 		}
 	}
 	for (size_t i = 0; i < vars->pl_size; i++)
 	{
-		if (plane_intersaction(vars, ray, &t, vars->planes[i]) && t < closest_t)			
+		if (plane_intersaction(vars, ray, &t, vars->planes[i]) && t < vars->closest_t)			
 		{
-			closest_t = t;
-			sphere_idx = -1;
-			plane_idx = i;
-			cy_idx = -1;
+			vars->closest_t = t;
+			vars->sphere_idx = -1;
+			vars->plane_idx = i;
+			vars->cy_idx = -1;
 		}
 	}
 	for (size_t i = 0; i < vars->cy_size; i++)
 	{
-		if (cylinder_intersaction(vars, ray, &t, vars->cylanders[i]) && t < closest_t)		
+		if (cylinder_intersaction(vars, ray, &t, vars->cylanders[i]) && t < vars->closest_t)		
 		{
-			closest_t = t;
-			sphere_idx = -1;
-			plane_idx = -1;
-			cy_idx = i;
+			vars->closest_t = t;
+			vars->sphere_idx = -1;
+			vars->plane_idx = -1;
+			vars->cy_idx = i;
 		}
 	}
-	if (sphere_idx != -1)
+	if (vars->sphere_idx != -1)
 	{
-		sphere_intersaction(vars, ray, &t, vars->spheres[sphere_idx]);
+		sphere_intersaction(vars, ray, &t, vars->spheres[vars->sphere_idx]);
 
-			return (calculate_sphere_color(ray, vars, vars->spheres[sphere_idx], t));
+			return (calculate_sphere_color(ray, vars, vars->spheres[vars->sphere_idx], t));
 	}
-	if (plane_idx != -1)
+	if (vars->plane_idx != -1)
 	{
-		plane_intersaction(vars, ray, &t, vars->planes[plane_idx]);			
-		return (calculate_plane_color(ray, vars, vars->planes[plane_idx], t));
+		plane_intersaction(vars, ray, &t, vars->planes[vars->plane_idx]);			
+		return (calculate_plane_color(ray, vars, vars->planes[vars->plane_idx], t));
 	}
-	if (cy_idx != -1)
+	if (vars->cy_idx != -1)
 	{
-	cylinder_intersaction(vars, ray, &t, vars->cylanders[cy_idx]);
-		return (calculate_cylinder_color(ray, vars, vars->cylanders[cy_idx], t));
+	cylinder_intersaction(vars, ray, &t, vars->cylanders[vars->cy_idx]);
+		return (calculate_cylinder_color(ray, vars, vars->cylanders[vars->cy_idx], t));
 	}
-	
-	return (0);
+	return(0);
 }
 
-t_vec vector_to_vec(t_vector vector)
+t_vec	vector_to_vec(t_vector	vector)
 {
 	return ((t_vec){.x = vector.x, .y = vector.y, .z = vector.z});
 }
 
-void copy_sphere(t_vars *vars, t_sphere_list list)
+void	copy_sphere(t_vars *vars, t_sphere_list list)
 {
 	vars->sp_size = list.size;
 	if (vars->sp_size > 0)
@@ -106,7 +104,7 @@ void copy_sphere(t_vars *vars, t_sphere_list list)
 	}
 }
 
-void copy_plane(t_vars *vars, t_plane_list list)
+void	copy_plane(t_vars *vars, t_plane_list list)
 {
 	vars->pl_size = list.size;
 	if (vars->pl_size > 0)
@@ -121,7 +119,7 @@ void copy_plane(t_vars *vars, t_plane_list list)
 	}
 }
 
-void copy_cy(t_vars *vars, t_cylider_list list)
+void	copy_cy(t_vars *vars, t_cylider_list list)
 {
 	vars->cy_size = list.size;
 	printf("this size %zu\n", vars->cy_size);
@@ -140,7 +138,7 @@ void copy_cy(t_vars *vars, t_cylider_list list)
 	}
 }
 
-void copy_light(t_vars *vars, t_light light)
+void	copy_light(t_vars *vars, t_light light)
 {
 	vars->light.origin = vector_to_vec(light.position);
 	vars->light.ratio = light.brightness;
@@ -149,7 +147,7 @@ void copy_light(t_vars *vars, t_light light)
 	vars->light.b = light.color.b;
 }
 
-void copy_ambient(t_vars *vars, t_parameters params)
+void	copy_ambient(t_vars *vars, t_parameters params)
 {
 	vars->ambient.ratio = params.ambient_lighting.intensity;
 	vars->ambient.r = params.ambient_lighting.color.r;
@@ -157,29 +155,28 @@ void copy_ambient(t_vars *vars, t_parameters params)
 	vars->ambient.b = params.ambient_lighting.color.b;
 }
 
-t_vec choose_up_vector(t_vec forward) {
-    t_vec up;
+t_vec	choose_up_vector(t_vec forward)
+{
+    t_vec	up;
     
     up = vec(0,1,0);
-
     if (fabs(fabs(forward.y) - 1.0) < 1e-6)
         up = vec(1, 0, 0);
-    return up;
+    return (up);
 }
 
-void copy_camera(t_vars *vars, t_parameters params)
+void	copy_camera(t_vars *vars, t_parameters params)
 {
 	vars->camera.fov = params.camera.field_of_view;
 	vars->camera.direction = vector_to_vec(params.camera.orientation);
 	vars->camera.origin = vector_to_vec(params.camera.position);
-	//vars->camera.right = vecnormalize(veccross(vec(.0,.0,1) ,vecnormalize(vars->camera.direction)));
 	vars->camera.right = veccross(choose_up_vector(vars->camera.direction) ,vars->camera.direction);
 	vars->camera.up = veccross(vars->camera.direction, vars->camera.right);
 }
 
-t_vars init_vars(t_parameters params)
+t_vars	init_vars(t_parameters params)
 {
-	t_vars vars;
+	t_vars	vars;
 
 	copy_light(&vars, params.light);
 	printf("1\n");
@@ -196,17 +193,16 @@ t_vars init_vars(t_parameters params)
 	return (vars);
 }
 
-void	render_scene_in_buffer(t_parameters parameters, unsigned int *buffer,
-			int height, int width)
+void	render_scene_in_buffer(t_parameters parameters, unsigned int *buffer, int height, int width)
 {
 	t_vars 		vars;
 
 	vars = init_vars(parameters);
 	//your code goes here
-	t_ray ray;
-	double u;
-	double v;
-	int i;
+	t_ray		ray;
+	double		u;
+	double		v;
+	int			i;
 
 	i = 0;
 	for (i = 0; i < height * width; i++)
@@ -224,4 +220,3 @@ void	render_scene_in_buffer(t_parameters parameters, unsigned int *buffer,
 		free(vars.planes);
 	printf("DONE!\n");
 }
-

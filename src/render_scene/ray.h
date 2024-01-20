@@ -92,6 +92,11 @@ typedef struct s_vars {
 	size_t 		sp_size;
 	size_t 		pl_size;
 	size_t 		cy_size;
+	double		closest_t;
+	int		sphere_idx;
+	int		plane_idx;
+	int		cy_idx;
+
 }				t_vars;
 
 // PLANE FUNCTIONS
