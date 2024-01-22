@@ -1,8 +1,6 @@
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "ray.h"
-
 
 int sphere_intersaction(t_vars *vars, t_ray ray, double *t, t_sp sphere)
 {

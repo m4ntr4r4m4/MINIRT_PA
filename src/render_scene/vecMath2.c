@@ -43,3 +43,8 @@ t_vec	at(t_ray ray, double t)
 	pos.z = ray.origin.z + ray.direction.z;
 	return (pos);
 }
+
+t_vec	vector_to_vec(t_vector	vector)
+{
+	return ((t_vec){.x = vector.x, .y = vector.y, .z = vector.z});
+}

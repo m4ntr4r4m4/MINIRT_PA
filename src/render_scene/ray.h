@@ -2,6 +2,7 @@
 # define RAY_H
 # include "../vector/vector.h"
 # include "../parameters/parameters.h"
+# include <string.h>
 # include <math.h>
 
 typedef struct s_vec
@@ -111,42 +112,57 @@ typedef struct s_vars
 
 // PLANE FUNCTIONS
 //
-int		plane_intersaction(t_vars *vars, \
+int				plane_intersaction(t_vars *vars, \
 	t_ray ray, double *t, t_pl plane);
-int		calculate_plane_color(t_ray ray, t_vars *vars, \
+int				calculate_plane_color(t_ray ray, t_vars *vars, \
 	t_pl plane, double t_plane);
 // SPHERE FUNCTIONS
 //
-int		cylinder_intersaction(t_vars *vars, \
+int				cylinder_intersaction(t_vars *vars, \
 	t_ray ray, double *t, t_cy cylinder);
-int		calculate_cylinder_color(t_ray ray, t_vars *vars, \
+int				calculate_cylinder_color(t_ray ray, t_vars *vars, \
 	t_cy cylinder, double t_cylinder);
 
 // SPHERE FUNCTIONS
 //
-int		sphere_intersaction(t_vars *vars, t_ray ray, double *t, t_sp sphere);
-int		calculate_sphere_color(t_ray ray, t_vars *vars, \
+int				sphere_intersaction(t_vars *vars, \
+	t_ray ray, double *t, t_sp sphere);
+int				calculate_sphere_color(t_ray ray, t_vars *vars, \
 	t_sp sphere, double t_sphere);
-int		shadowed(t_vars *vars, t_vec p, t_ablight light, char *add);
-void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere);
-void	calculate_ambient(t_vars *vars);
+int				shadowed(t_vars *vars, t_vec p, t_ablight light, char *add);
+void			calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere);
+void			calculate_ambient(t_vars *vars);
 // VECTOR FUNCTIONS
 //
-t_vec	at(t_ray ray, double t);
-t_vec	vecplus(t_vec vec1, t_vec vec2);
-t_vec	vecminus(t_vec vec1, t_vec vec2);
-t_vec	vecscale(t_vec vec, double scaler);
-t_vec	vecdiv(t_vec vec, double divider);
-double	vecdot(t_vec vec1, t_vec vec2);
-t_vec	vecnormalize(t_vec vec);
-t_vec	veccross(t_vec vec1, t_vec vec2);
-double	veclength(t_vec vec);
-t_vec	vec(double x, double y, double z);
+t_vec			at(t_ray ray, double t);
+t_vec			vecplus(t_vec vec1, t_vec vec2);
+t_vec			vecminus(t_vec vec1, t_vec vec2);
+t_vec			vecscale(t_vec vec, double scaler);
+t_vec			vecdiv(t_vec vec, double divider);
+double			vecdot(t_vec vec1, t_vec vec2);
+t_vec			vecnormalize(t_vec vec);
+t_vec			veccross(t_vec vec1, t_vec vec2);
+double			veclength(t_vec vec);
+t_vec			vec(double x, double y, double z);
+t_vec			vector_to_vec(t_vector	vector);
 // MATH FUNCTIONS
 //
-double	ft_min(double x, double y);
-double	ft_max(double x, double y);
-double	ft_clamp(double x, double min, double max);
+double			ft_min(double x, double y);
+double			ft_max(double x, double y);
+double			ft_clamp(double x, double min, double max);
 // MLX FUNCTIONS
-int		create_trgb(int t, int r, int g, int b);
+int				create_trgb(int t, int r, int g, int b);
+unsigned int	ft_color_obj(t_vars *vars, t_ray ray);
+void			ft_check_sp(t_vars *vars, t_ray ray);
+void			ft_check_cy(t_vars *vars, t_ray ray);
+void			ft_check_pl(t_vars *vars, t_ray ray);
+t_ray			init_ray(t_vars *vars, double u, double v);
+// COPY FUNCTIONS
+//
+void			copy_ambient(t_vars *vars, t_parameters params);
+void			copy_light(t_vars *vars, t_light light);
+void			copy_cy(t_vars *vars, t_cylider_list list);
+void			copy_plane(t_vars *vars, t_plane_list list);
+void			copy_sphere(t_vars *vars, t_sphere_list list);
+
 #endif
