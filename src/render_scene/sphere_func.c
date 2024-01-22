@@ -18,128 +18,45 @@ double	sp_dicriminant(t_ray ray, double *t1, double *t2, t_sp sphere)
 	return ((b * b) - (4 * a * c));
 }
 
-int sphere_intersaction(t_ray ray, double *t, t_sp sphere)
+int	sphere_intersaction(t_ray ray, double *t, t_sp sphere)
 {
 	double	t1;
 	double	t2;
-	double dicriminant;
+	double	dicriminant;
 
 	dicriminant = sp_dicriminant(ray, &t1, &t2, sphere);
 	if (dicriminant < 0)
-		return(0);
+		return (0);
 	if (t1 > 0 && (t1 < t2 || t2 <= 0))
-        *t = t1;
+		*t = t1;
 	else
-    	*t = t2;
+		*t = t2;
 	return (1);
 }
 
-void calculate_diffuse(t_vec p, t_vec n, t_vars *vars , t_sp sphere)
+void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 {
-	t_vec lightDirection = vecnormalize(vecminus(vars->light.origin , p)); // Direction to the spotlight
+	double	cos_angle;
 
-    double cosAngle = vecdot(n, lightDirection);
-    if (cosAngle > 0.0)
-    {
-	    if (!shadowed(vars, p, vars->light, (char *)&sphere))
-	    {
-		vars->color.r += (sphere.r * cosAngle) * vars->light.ratio;
-		vars->color.g += (sphere.g * cosAngle) * vars->light.ratio;
-		vars->color.b += (sphere.b * cosAngle) * vars->light.ratio;
-	    }
-	vars->color.r = ft_clamp(vars->color.r, 0, 255);
-	vars->color.g = ft_clamp(vars->color.g, 0, 255);
-	vars->color.b = ft_clamp(vars->color.b, 0, 255);
-    }
-
-}
-
-double vecsquaredlength(t_vec v) {
-    return v.x * v.x + v.y * v.y + v.z * v.z;
-}
-
-void calculate_ambient(t_vars *vars)
-{
-	vars->color.r = vars->ambient.ratio * vars->ambient.r; 
-	vars->color.g = vars->ambient.ratio * vars->ambient.g; 
-	vars->color.b = vars->ambient.ratio * vars->ambient.b; 
-}
-
-int	check_shadow_sp(char *add, t_vars *vars, t_vec p, t_ablight light)
-{
-	size_t	i;
-	double	t;
-	t_ray	shadow;
-
-	shadow.origin = p;
-	shadow.direction = vecnormalize(vecminus(light.origin , p));
-	i = 0;
-	t = 0;
-	while (i < vars->sp_size)
+	cos_angle = vecdot(n, vecnormalize(vecminus(vars->light.origin, p)));
+	if (cos_angle > 0.0)
 	{
-		if (strlen(add) && !strcmp((char *)&vars->spheres[i], add))
-	    	continue;
-        sphere_intersaction(shadow, &t, vars->spheres[i]);
-        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-            return (1);
-		i++;
+		if (!shadowed(vars, p, vars->light, (char *)&sphere))
+		{
+			vars->color.r += (sphere.r * cos_angle) * vars->light.ratio;
+			vars->color.g += (sphere.g * cos_angle) * vars->light.ratio;
+			vars->color.b += (sphere.b * cos_angle) * vars->light.ratio;
+		}
+		vars->color.r = ft_clamp(vars->color.r, 0, 255);
+		vars->color.g = ft_clamp(vars->color.g, 0, 255);
 	}
-	return (0);
 }
 
-int	check_shadow_pl(char *add, t_vars *vars, t_vec p, t_ablight light)
+void	calculate_ambient(t_vars *vars)
 {
-	size_t	i;
-	double	t;
-	t_ray	shadow;
-
-	shadow.origin = p;
-	shadow.direction = vecnormalize(vecminus(light.origin , p));
-	i = 0;
-	t = 0;
-	while (i < vars->pl_size)
-	{
-		if (strlen(add) && !strcmp((char *)&vars->planes[i], add))
-	    	continue;
-        plane_intersaction(shadow, &t, vars->planes[i]);
-        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-            return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	check_shadow_cy(char *add, t_vars *vars, t_vec p, t_ablight light)
-{
-	size_t	i;
-	double	t;
-	t_ray	shadow;
-
-	shadow.origin = p;
-	shadow.direction = vecnormalize(vecminus(light.origin , p));
-	i = 0;
-	t = 0;
-	while (i < vars->cy_size)
-	{
-		if (strlen(add) && !strcmp((char *)&vars->cylanders[i], add))
-	    	continue;
-       cylinder_intersaction(shadow, &t, vars->cylanders[i]);
-        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-            return (1);
-		i++;
-	}
-	return (0);
-}
-
-int shadowed(t_vars *vars, t_vec p, t_ablight light, char *add)
-{
-	if (check_shadow_sp(add, vars, p, light))
-		return (1);
-	if (check_shadow_pl(add, vars, p, light))
-		return (1);
-	if (check_shadow_cy(add, vars, p, light))
-		return (1);
-	return (0);
+	vars->color.r = vars->ambient.ratio * vars->ambient.r;
+	vars->color.g = vars->ambient.ratio * vars->ambient.g;
+	vars->color.b = vars->ambient.ratio * vars->ambient.b;
 }
 
 int	calculate_sphere_color(t_ray ray, t_vars *vars, \

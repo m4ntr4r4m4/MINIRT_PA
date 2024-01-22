@@ -35,14 +35,6 @@ t_vec	vecscale(t_vec vec, double scaler)
 	return (vec);
 }
 
-t_vec	vecdiv(t_vec vec, double divider)
-{
-	vec.x /= divider;
-	vec.y /= divider;
-	vec.z /= divider;
-	return (vec);
-}
-
 t_vec	veccross(t_vec vec1, t_vec vec2)
 {
 	t_vec	c;
@@ -52,7 +44,8 @@ t_vec	veccross(t_vec vec1, t_vec vec2)
 	c.z = (vec1.x * vec2.y) - (vec1.y * vec2.x);
 	return (c);
 }
-t_vec vec(double x, double y, double z)
+
+t_vec	vec(double x, double y, double z)
 {
-	return((t_vec){.x = x, .y = y, .z = z});
+	return ((t_vec){.x = x, .y = y, .z = z});
 }

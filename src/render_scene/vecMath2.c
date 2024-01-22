@@ -28,9 +28,10 @@ double	vecdot(t_vec vec1, t_vec vec2)
 {
 	return (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
 }
-double veclength(t_vec vec)
+
+double	veclength(t_vec vec)
 {
-    return sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
+	return (sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z));
 }
 
 t_vec	at(t_ray ray, double t)
