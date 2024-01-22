@@ -6,10 +6,9 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:32:43 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/15 15:09:05 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:32:58 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ray.h"
 
 t_vec	vecnormalize(t_vec vec)

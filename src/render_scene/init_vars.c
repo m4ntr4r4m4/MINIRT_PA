@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_vars.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
+/*   Updated: 2024/01/22 12:33:56 by ahammoud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ray.h"
 
 t_ray	init_ray(t_vars *vars, double u, double v)
@@ -38,7 +50,8 @@ void	ft_check_cy(t_vars *vars, t_ray ray)
 	i = 0;
 	while (i < vars->cy_size)
 	{
-		if (cylinder_intersaction(ray, &t, vars->cylanders[i]) && t < vars->closest_t)
+		if (cylinder_intersaction(ray, &t, \
+					vars->cylanders[i]) && t < vars->closest_t)
 		{
 			vars->closest_t = t;
 			vars->sphere_idx = -1;
@@ -57,7 +70,8 @@ void	ft_check_sp(t_vars *vars, t_ray ray)
 	i = 0;
 	while (i < vars->sp_size)
 	{
-		if (sphere_intersaction(ray, &t, vars->spheres[i]) && t < vars->closest_t)
+		if (sphere_intersaction(ray, &t, \
+					vars->spheres[i]) && t < vars->closest_t)
 		{
 			vars->closest_t = t;
 			vars->sphere_idx = i;

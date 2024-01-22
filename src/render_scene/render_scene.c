@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: render_scene.c                                                 */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/22 13:28:58                                            */
-/*   Updated:  2024/01/14 11:59:10                                            */
+/*                                                        :::      ::::::::   */
+/*   render_scene.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
+/*   Updated: 2024/01/22 12:31:46 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

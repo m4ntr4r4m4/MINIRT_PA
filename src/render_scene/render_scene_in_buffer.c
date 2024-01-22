@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   render_scene_in_buffer.c                           :+:      :+:    :+:   */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/23 08:56:27                                            */
-/*   Updated: 2024/01/20 16:08:09 by ahammoud         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
+/*   Updated: 2024/01/22 12:32:17 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
