@@ -2,37 +2,42 @@
 #include <stdio.h>
 #include "ray.h"
 
-int sphere_intersaction(t_vars *vars, t_ray ray, double *t, t_sp sphere)
+double	sp_dicriminant(t_ray ray, double *t1, double *t2, t_sp sphere)
 {
-	t_vec oc;
+	t_vec	oc;
+	double	a;
+	double	b;
+	double	c;
 
 	oc = vecminus(ray.origin, sphere.center);
-	double a = vecdot(ray.direction, ray.direction);
-	double b = 2.0 *  vecdot(oc, ray.direction);
-	double c = (double)vecdot(oc, oc) - (sphere.radius * sphere.radius);
-	double dicriminant = (b * b) - (4*a*c);
-	if (dicriminant < 0)
-	{
-		return(0);
-	}
-	float t1 = (-b - sqrt(dicriminant)) / (2.0 * a);
-        float t2 = (-b + sqrt(dicriminant)) / (2.0 * a);
-
-	if (t1 > 0 && (t1 < t2 || t2 <= 0)) {
-            *t = t1;
-        } else {
-            *t = t2;
-        }
-	return (1);
+	a = vecdot(ray.direction, ray.direction);
+	b = 2.0 * vecdot(oc, ray.direction);
+	c = (double)vecdot(oc, oc) - (sphere.radius * sphere.radius);
+	*t1 = (-b - sqrt((b * b) - (4 * a * c))) / (2.0 * a);
+	*t2 = (-b + sqrt((b * b) - (4 * a * c))) / (2.0 * a);
+	return ((b * b) - (4 * a * c));
 }
 
+int sphere_intersaction(t_ray ray, double *t, t_sp sphere)
+{
+	double	t1;
+	double	t2;
+	double dicriminant;
 
+	dicriminant = sp_dicriminant(ray, &t1, &t2, sphere);
+	if (dicriminant < 0)
+		return(0);
+	if (t1 > 0 && (t1 < t2 || t2 <= 0))
+        *t = t1;
+	else
+    	*t = t2;
+	return (1);
+}
 
 void calculate_diffuse(t_vec p, t_vec n, t_vars *vars , t_sp sphere)
 {
 	t_vec lightDirection = vecnormalize(vecminus(vars->light.origin , p)); // Direction to the spotlight
 
-    double dotProduct = vecdot( n, lightDirection);
     double cosAngle = vecdot(n, lightDirection);
     if (cosAngle > 0.0)
     {
@@ -60,60 +65,92 @@ void calculate_ambient(t_vars *vars)
 	vars->color.b = vars->ambient.ratio * vars->ambient.b; 
 }
 
-int shadowed(t_vars *vars, t_vec p, t_ablight light, char *add)
+int	check_shadow_sp(char *add, t_vars *vars, t_vec p, t_ablight light)
 {
-	double t;
-	t_vec lightDirection = vecnormalize(vecminus(light.origin , p)); // Direction to the spotlight
-	t_ray shadow;
-	double t_sphere;
+	size_t	i;
+	double	t;
+	t_ray	shadow;
+
 	shadow.origin = p;
-	shadow.direction = lightDirection;
+	shadow.direction = vecnormalize(vecminus(light.origin , p));
+	i = 0;
 	t = 0;
-    for (int i = 0; i < vars->sp_size; i++) {
-
-	    if (strlen(add) && !strcmp((char *)&vars->spheres[i], add))
-	    {
+	while (i < vars->sp_size)
+	{
+		if (strlen(add) && !strcmp((char *)&vars->spheres[i], add))
 	    	continue;
-	    }
-        sphere_intersaction(vars,shadow, &t, vars->spheres[i]);
+        sphere_intersaction(shadow, &t, vars->spheres[i]);
         if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-            return 1; // Point is in shadow
-        }
-
-    for (int i = 0; i < vars->pl_size; i++) {
-          if (strlen(add) && !strcmp((char *)&vars->planes[i], add))
-          {
-      	    continue;
-          }
-        plane_intersaction(vars,shadow, &t, vars->planes[i]);
-        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-        {
-            return 1; // Point is in shadow
-        }
-    }
-
-    for (int i = 0; i < vars->cy_size; i++) {
-	    if (strlen(add) && !strcmp((char *)&vars->cylanders[i], add))
-	    {
-      	    	continue;
-	    }
-        cylinder_intersaction(vars,shadow, &t, vars->cylanders[i]);
-        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
-        {
-            return 1; // Point is in shadow
-        }
-    }
-
-	return 0;
+            return (1);
+		i++;
+	}
+	return (0);
 }
 
-int	calculate_sphere_color(t_ray ray, t_vars *vars, t_sp sphere, double t_sphere)
+int	check_shadow_pl(char *add, t_vars *vars, t_vec p, t_ablight light)
 {
+	size_t	i;
+	double	t;
+	t_ray	shadow;
+
+	shadow.origin = p;
+	shadow.direction = vecnormalize(vecminus(light.origin , p));
+	i = 0;
+	t = 0;
+	while (i < vars->pl_size)
+	{
+		if (strlen(add) && !strcmp((char *)&vars->planes[i], add))
+	    	continue;
+        plane_intersaction(shadow, &t, vars->planes[i]);
+        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
+            return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	check_shadow_cy(char *add, t_vars *vars, t_vec p, t_ablight light)
+{
+	size_t	i;
+	double	t;
+	t_ray	shadow;
+
+	shadow.origin = p;
+	shadow.direction = vecnormalize(vecminus(light.origin , p));
+	i = 0;
+	t = 0;
+	while (i < vars->cy_size)
+	{
+		if (strlen(add) && !strcmp((char *)&vars->cylanders[i], add))
+	    	continue;
+       cylinder_intersaction(shadow, &t, vars->cylanders[i]);
+        if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
+            return (1);
+		i++;
+	}
+	return (0);
+}
+
+int shadowed(t_vars *vars, t_vec p, t_ablight light, char *add)
+{
+	if (check_shadow_sp(add, vars, p, light))
+		return (1);
+	if (check_shadow_pl(add, vars, p, light))
+		return (1);
+	if (check_shadow_cy(add, vars, p, light))
+		return (1);
+	return (0);
+}
+
+int	calculate_sphere_color(t_ray ray, t_vars *vars, \
+	t_sp sphere, double t_sphere)
+{
+	t_vec	intersection;
+	t_vec	sphere_normal;
+
 	calculate_ambient(vars);
-
-	t_vec intersection = vecplus(ray.origin , vecscale(ray.direction ,t_sphere));
-	t_vec sphere_normal = vecnormalize(vecminus(intersection , sphere.center));
-
+	intersection = vecplus(ray.origin, vecscale(ray.direction, t_sphere));
+	sphere_normal = vecnormalize(vecminus(intersection, sphere.center));
 	calculate_diffuse(intersection, sphere_normal, vars, sphere);
-	return (create_trgb(0, vars->color.r,  vars->color.g, vars->color.b));
+	return (create_trgb(0, vars->color.r, vars->color.g, vars->color.b));
 }

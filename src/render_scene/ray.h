@@ -112,21 +112,18 @@ typedef struct s_vars
 
 // PLANE FUNCTIONS
 //
-int				plane_intersaction(t_vars *vars, \
-	t_ray ray, double *t, t_pl plane);
+int				plane_intersaction(t_ray ray, double *t, t_pl plane);
 int				calculate_plane_color(t_ray ray, t_vars *vars, \
 	t_pl plane, double t_plane);
 // SPHERE FUNCTIONS
 //
-int				cylinder_intersaction(t_vars *vars, \
-	t_ray ray, double *t, t_cy cylinder);
+int				cylinder_intersaction(t_ray ray, double *t, t_cy cylinder);
 int				calculate_cylinder_color(t_ray ray, t_vars *vars, \
 	t_cy cylinder, double t_cylinder);
 
 // SPHERE FUNCTIONS
 //
-int				sphere_intersaction(t_vars *vars, \
-	t_ray ray, double *t, t_sp sphere);
+int				sphere_intersaction(t_ray ray, double *t, t_sp sphere);
 int				calculate_sphere_color(t_ray ray, t_vars *vars, \
 	t_sp sphere, double t_sphere);
 int				shadowed(t_vars *vars, t_vec p, t_ablight light, char *add);

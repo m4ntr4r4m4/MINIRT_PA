@@ -24,7 +24,7 @@ double	cy_dicriminant(t_ray ray, double *t1, double *t2, t_cy cylinder)
 	return ((b * b) - (4 * a * c));
 }
 
-int	cylinder_intersaction(t_vars *vars, t_ray ray, double *t, t_cy cylinder)
+int	cylinder_intersaction(t_ray ray, double *t, t_cy cylinder)
 {
 	double	dicriminant;
 	double	h2;

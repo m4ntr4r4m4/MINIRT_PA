@@ -1,4 +1,5 @@
 #include "ray.h"
+#include <stdlib.h>
 
 void	copy_sphere(t_vars *vars, t_sphere_list list)
 {
@@ -44,7 +45,6 @@ void	copy_cy(t_vars *vars, t_cylider_list list)
 
 	i = 0;
 	vars->cy_size = list.size;
-	printf("this size %zu\n", vars->cy_size);
 	if (vars->cy_size > 0)
 		vars->cylanders = malloc(sizeof(t_cy) * vars->cy_size);
 	while (i < vars->cy_size)

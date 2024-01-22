@@ -1,6 +1,6 @@
 #include "ray.h"
 
-int	plane_intersaction(t_vars *vars, t_ray ray, double *t, t_pl plane)
+int	plane_intersaction(t_ray ray, double *t, t_pl plane)
 {
 	double	dot;
 

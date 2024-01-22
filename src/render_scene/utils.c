@@ -22,10 +22,7 @@ double ft_clamp(double x , double min , double max)
 		return max;
     return x;
 }
-int 	calculate_color(t_ray r, t_vars *vars)
-{
-	return 0;
-}
+
 int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
