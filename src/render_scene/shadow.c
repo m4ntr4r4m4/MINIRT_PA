@@ -20,16 +20,15 @@ int	check_shadow_sp(char *add, t_vars *vars, t_vec p, t_ablight light)
 
 	shadow.origin = p;
 	shadow.direction = vecnormalize(vecminus(light.origin, p));
-	i = 0;
+	i = -1;
 	t = 0;
-	while (i < vars->sp_size)
+	while (++i < vars->sp_size)
 	{
 		if (strlen(add) && !strcmp((char *)&vars->spheres[i], add))
 			continue ;
 		sphere_intersaction(shadow, &t, vars->spheres[i]);
 		if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
 			return (1);
-		i++;
 	}
 	return (0);
 }

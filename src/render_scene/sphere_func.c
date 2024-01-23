@@ -51,7 +51,7 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 	double	cos_angle;
 
 	cos_angle = vecdot(n, vecnormalize(vecminus(vars->light.origin, p)));
-	if (cos_angle > 0.0)
+	if (cos_angle > 1e-4)
 	{
 		if (!shadowed(vars, p, vars->light, (char *)&sphere))
 		{
@@ -61,6 +61,8 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 		}
 		vars->color.r = ft_clamp(vars->color.r, 0, 255);
 		vars->color.g = ft_clamp(vars->color.g, 0, 255);
+		vars->color.b = ft_clamp(vars->color.b, 0, 255);
+
 	}
 }
 
