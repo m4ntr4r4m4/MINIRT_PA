@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: get_parameters_internal.c                                      */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/13 18:37:45                                            */
-/*   Updated:  2024/01/14 11:56:08                                            */
+/*                                                        :::      ::::::::   */
+/*   get_parameters_internal.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:15:18 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:15:20 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

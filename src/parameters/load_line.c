@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: load_line.c                                                    */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/07 19:54:14                                            */
-/*   Updated:  2024/01/14 11:56:31                                            */
+/*                                                        :::      ::::::::   */
+/*   load_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:14:19 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:28:36 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	first_char_of_line(t_line *line)
 
 void	load_line_initial(t_line *line, t_buffer *buf, int fileno)
 {
-	*line = (t_line){0};
+	*line = (t_line){{0}, 0, 0};
 	*buf = (t_buffer){0};
 	load_line(line, buf, fileno);
 }

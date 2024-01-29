@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/03 23:44:35                                            */
-/*   Updated: 2024/01/14 13:45:37 by ahammoud         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:17:48 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:25:28 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_vector
 	long double	x;
 	long double	y;
 	long double	z;
-}t_vector;
+}	t_vector;
 
 bool		is_normal(t_vector vector);
 t_vector	normalize(t_vector v1);

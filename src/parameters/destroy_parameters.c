@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: destroy_parameters.c                                           */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/21 09:23:05                                            */
-/*   Updated:  2024/01/14 11:55:58                                            */
+/*                                                        :::      ::::::::   */
+/*   destroy_parameters.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:16:16 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:16:18 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

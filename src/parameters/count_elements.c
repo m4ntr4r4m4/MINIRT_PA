@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: count_elements.c                                               */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/07 19:49:21                                            */
-/*   Updated:  2024/01/14 11:55:49                                            */
+/*                                                        :::      ::::::::   */
+/*   count_elements.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:15:09 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:28:05 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_element_count	count_elements(char *filename)
 		return ((t_element_count){.count_failed = true});
 	}
 	element_count = (t_element_count){.count_failed = false};
-	line = (t_line){0};
+	line = (t_line){{0}, 0, 0};
 	buf = (t_buffer){0};
 	read_file(&line, &buf, &element_count, fileno);
 	close(fileno);

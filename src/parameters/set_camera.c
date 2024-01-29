@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: set_camera.c                                                   */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/19 21:29:44                                            */
-/*   Updated:  2024/01/14 11:58:02                                            */
+/*                                                        :::      ::::::::   */
+/*   set_camera.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:14:49 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:27:10 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ void	set_camera(char *filename, t_parameters *parameters)
 		return ;
 	}
 	set_camera_internal(parameters, fileno);
+	parameters->camera.field_of_view *= M_PI / 180.L;
 	close(fileno);
 }

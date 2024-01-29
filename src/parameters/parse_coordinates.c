@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: parse_coordinates.c                                            */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/19 21:52:02                                            */
-/*   Updated:  2024/01/14 11:57:14                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_coordinates.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:14:30 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:14:32 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

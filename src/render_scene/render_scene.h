@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: render_scene.h                                                 */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/22 13:33:30                                            */
-/*   Updated:  2024/01/14 11:59:00                                            */
+/*                                                        :::      ::::::::   */
+/*   render_scene.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:24:22 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:24:24 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,22 @@
 
 # include "../parameters/parameters.h"
 # include "mlx.h"
+
+typedef struct s_img_data
+{
+	void	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img_data;
+
+typedef struct s_hook_parameters
+{
+	t_parameters	parameters;
+	void			*connection_id;
+	void			*window_id;
+	void			*img_id;
+}	t_hook_parameters;
 
 void			render_scene(t_parameters parameters);
 void			render_scene_in_buffer(t_parameters parameters,

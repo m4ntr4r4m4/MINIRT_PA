@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: parse_orientation_vector.c                                     */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/19 23:36:48                                            */
-/*   Updated:  2024/01/14 11:57:40                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_orientation_vector.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:14:40 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:14:42 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

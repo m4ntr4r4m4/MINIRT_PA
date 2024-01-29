@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/22 12:31:46 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:24:04 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,6 @@
 
 #define WIDTH 960
 #define HEIGHT 720
-
-typedef struct s_img_data
-{
-	void	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}t_img_data;
-
-typedef struct s_hook_parameters
-{
-	t_parameters	parameters;
-	void			*connection_id;
-	void			*window_id;
-	void			*img_id;
-}t_hook_parameters;
 
 static void	stablish_conection(void **connection_id, void **window_id,
 		void **img_id)
@@ -47,7 +31,6 @@ static void	stablish_conection(void **connection_id, void **window_id,
 	if (*window_id == NULL)
 	{
 		perror("Error\nFailed to create a window");
-//		mlx_destroy_display(*connection_id);
 		return ;
 	}
 	*img_id = mlx_new_image(*connection_id, WIDTH, HEIGHT);
@@ -55,7 +38,6 @@ static void	stablish_conection(void **connection_id, void **window_id,
 	{
 		perror("Error\nFailed to create a buffer");
 		mlx_destroy_window(*connection_id, *window_id);
-	//	mlx_destroy_display(*connection_id);
 		return ;
 	}
 }
@@ -78,7 +60,6 @@ static int	destroy_and_exit(void *parameters_ptr)
 
 	mlx_destroy_image(parameters.connection_id, parameters.img_id);
 	mlx_destroy_window(parameters.connection_id, parameters.window_id);
-//	mlx_destroy_display(parameters.connection_id);
 	destroy_parameters(parameters.parameters);
 	exit(0);
 }

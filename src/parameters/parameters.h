@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   parameters.h                                       :+:      :+:    :+:   */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/03 21:56:50                                            */
-/*   Updated: 2024/01/14 14:30:19 by ahammoud         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:15:28 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:21:40 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_line
 	char	line[MAX_LINE_SIZE];
 	int		size;
 	bool	io_error;
-}t_line;
+}	t_line;
 
 typedef struct s_buffer
 {
@@ -34,21 +34,21 @@ typedef struct s_buffer
 	int		index;
 	char	buf[BUFSIZE];
 	bool	io_error;
-}t_buffer;
+}	t_buffer;
 
 typedef struct s_ambient_lighting
 {
 	long double	intensity;
 	t_color		color;
 	bool		initialized;
-}t_ambient_lighting;
+}	t_ambient_lighting;
 
 typedef struct s_camera
 {
 	t_vector		orientation;
 	long double		field_of_view;
 	t_vector		position;
-}t_camera;
+}	t_camera;
 
 typedef struct s_light
 {
@@ -56,33 +56,33 @@ typedef struct s_light
 	long double		brightness;
 	t_color			color;
 	bool			initialized;
-}t_light;
+}	t_light;
 
 typedef struct s_sphere
 {
 	t_vector	center;
 	long double	diameter;
 	t_color		color;
-}t_sphere;
+}	t_sphere;
 
 typedef struct s_sphere_list
 {
 	t_sphere	*spheres;
 	int			size;
-}t_sphere_list;
+}	t_sphere_list;
 
 typedef struct s_plane
 {
 	t_vector	normal;
 	t_vector	position;
 	t_color		color;
-}t_plane;
+}	t_plane;
 
 typedef struct s_plane_list
 {
 	t_plane	*planes;
 	int		size;
-}t_plane_list;
+}	t_plane_list;
 
 typedef struct s_cylinder
 {
@@ -91,13 +91,13 @@ typedef struct s_cylinder
 	long double	height;
 	long double	diameter;
 	t_color		color;
-}t_cylinder;
+}	t_cylinder;
 
 typedef struct s_cylider_list
 {
 	t_cylinder	*cylinders;
 	int			size;
-}t_cylider_list;
+}	t_cylider_list;
 
 typedef struct s_parametes
 {
@@ -108,8 +108,8 @@ typedef struct s_parametes
 	t_plane_list		plane_list;
 	t_cylider_list		cylinder_list;
 	bool				parameters_valid;
-	t_color 		color;
-}t_parameters;
+	t_color				color;
+}	t_parameters;
 
 typedef struct s_element_count
 {
@@ -120,7 +120,7 @@ typedef struct s_element_count
 	int		plane_count;
 	int		cylinder_count;
 	bool	count_failed;
-}t_element_count;
+}	t_element_count;
 
 t_parameters	get_parameters(char *filename);
 bool			parameters_valid(t_parameters parameters);

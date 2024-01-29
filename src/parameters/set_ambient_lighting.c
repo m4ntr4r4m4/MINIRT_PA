@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                                            */
-/*   Filename: set_ambient_lighting.c                                         */
-/*   Author:   Peru Riezu <riezumunozperu@gmail.com>                          */
-/*   github:   https://github.com/priezu-m                                    */
-/*   Licence:  GPLv3                                                          */
-/*   Created:  2023/10/18 16:19:52                                            */
-/*   Updated:  2024/01/14 11:57:55                                            */
+/*                                                        :::      ::::::::   */
+/*   set_ambient_lighting.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 15:17:02 by priezu-m          #+#    #+#             */
+/*   Updated: 2024/01/29 15:17:04 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

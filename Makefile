@@ -6,7 +6,7 @@
 #    github:   https://github.com/priezu-m                                     #
 #    Licence:  GPLv3                                                           #
 #    Created:  2023/09/27 18:57:07                                             #
-#    Updated: 2024/01/15 15:12:01 by ahammoud         ###   ########.fr        #
+#    Updated: 2024/01/29 15:29:09 by priezu-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,12 @@
 
 SHELL :=			bash
 CC :=				gcc
-	CFLAGS :=		-g	-O2  -Wall -Wextra 
-#LDFLAGS :=			-lm -lmlx -lXext -lX11
-LDFLAGS :=		-lmlx -framework OpenGL -framework Appkit	
+CFLAGS :=			-g	-O2  -Wall -Wextra -Werror
+LDFLAGS :=			-lmlx -framework OpenGL -framework Appkit
 
 ################################################################################
 
-NAME :=				minirt
+NAME :=				miniRT
 
 DEP_PATH :=			./DEP
 DEP_PATH_MAKE :=	DEP/

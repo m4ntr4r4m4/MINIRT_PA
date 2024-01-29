@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/22 12:32:37 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:25:09 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 		vars->color.r = ft_clamp(vars->color.r, 0, 255);
 		vars->color.g = ft_clamp(vars->color.g, 0, 255);
 		vars->color.b = ft_clamp(vars->color.b, 0, 255);
-
 	}
 }
 
