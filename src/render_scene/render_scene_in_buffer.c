@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/22 12:32:17 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:21:14 by priezu-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	render_scene_in_buffer(t_parameters parameters, \
 	while (i < height * width)
 	{
 		u = (((double)(i % width) / width) - 0.5) * tan((vars.camera.fov)) * 2;
-		v = ((double)(((double)i / width) / width) \
+		v = ((double)(((double)i / width) / height) \
 			- 0.5) * tan((vars.camera.fov)) * 2;
 		ray = init_ray(&vars, u, v);
 		buffer[i++] = trace_ray(&vars, ray);
