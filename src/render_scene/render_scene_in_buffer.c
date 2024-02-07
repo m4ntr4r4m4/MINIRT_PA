@@ -78,11 +78,13 @@ void	render_scene_in_buffer(t_parameters parameters, \
 
 	vars = init_vars(parameters);
 	i = 0;
+	printf("FOV %f\n",vars.camera.fov);
 	while (i < height * width)
 	{
-		u = (((double)(i % width) / width) - 0.5) * tan((vars.camera.fov)) * 2;
+		u = (((double)(i % width) / width) - 0.5) * tan((vars.camera.fov / 2 * M_PI / 180)) * 2;
 		v = ((double)(((double)i / width) / height) \
-			- 0.5) * tan((vars.camera.fov)) * 2;
+			- 0.5) * tan((vars.camera.fov / 2 * M_PI / 180)) * 2;
+		v *= -1 * (double)(width / height);
 		ray = init_ray(&vars, u, v);
 		buffer[i++] = trace_ray(&vars, ray);
 	}

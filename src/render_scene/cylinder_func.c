@@ -70,7 +70,7 @@ void	calculate_diffuse_cy(t_vec p, t_vec n, t_vars *vars, t_cy cylinder)
 	double	cos_angle;
 
 	light_direction = vecnormalize(vecminus(vars->light.origin, p));
-	cos_angle = vecdot(n, light_direction);
+	cos_angle = fabs(vecdot(n, light_direction));
 	if (cos_angle > 0.0)
 	{
 		if (!shadowed(vars, p, vars->light, (char *)&cylinder))

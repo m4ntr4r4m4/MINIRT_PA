@@ -48,6 +48,7 @@ void	ft_check_cy(t_vars *vars, t_ray ray)
 	size_t	i;
 
 	i = 0;
+	t = 0;
 	while (i < vars->cy_size)
 	{
 		if (cylinder_intersaction(ray, &t, \

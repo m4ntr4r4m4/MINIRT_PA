@@ -6,7 +6,7 @@
 #    github:   https://github.com/priezu-m                                     #
 #    Licence:  GPLv3                                                           #
 #    Created:  2023/09/27 18:57:07                                             #
-#    Updated: 2024/01/29 16:16:49 by priezu-m         ###   ########.fr        #
+#    Updated: 2024/02/07 17:23:05 by ahammoud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@
 
 SHELL :=			bash
 CC :=				gcc
-CFLAGS :=			-g	-O2  -Wall -Wextra -Werror -fsanitize=address,undefined
+#CFLAGS :=			-g	-O2  -Wall -Wextra -Werror -fsanitize=address,undefined
+CFLAGS :=			-g
 LDFLAGS :=			-lmlx -framework OpenGL -framework Appkit
 
 ################################################################################
