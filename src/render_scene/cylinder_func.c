@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/22 12:30:45 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:37:08 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,16 @@ void	calculate_diffuse_cy(t_vec p, t_vec n, t_vars *vars, t_cy cylinder)
 			vars->color.g += (cylinder.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (cylinder.b * cos_angle) * vars->light.ratio;
 		}
-		vars->color.r = ft_clamp(vars->color.r, 0, 255);
-		vars->color.g = ft_clamp(vars->color.g, 0, 255);
-		vars->color.b = ft_clamp(vars->color.b, 0, 255);
 	}
+	else
+	{
+		vars->color.r *= cylinder.r;
+		vars->color.g *= cylinder.g;
+		vars->color.b *= cylinder.b;
+	}
+	vars->color.r = ft_clamp(vars->color.r, 0, 255);
+	vars->color.g = ft_clamp(vars->color.g, 0, 255);
+	vars->color.b = ft_clamp(vars->color.b, 0, 255);
 }
 
 t_vec	cy_normal(t_vec p, t_cy cylinder)

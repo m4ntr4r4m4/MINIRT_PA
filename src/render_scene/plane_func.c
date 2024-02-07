@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/22 12:31:05 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:37:35 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,16 @@ void	calculate_diffuse_plane(t_vec p, t_vec n, t_vars *vars, t_pl plane)
 			vars->color.g += (plane.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (plane.b * cos_angle) * vars->light.ratio;
 		}
-		vars->color.r = ft_clamp(vars->color.r, 0, 255);
-		vars->color.g = ft_clamp(vars->color.g, 0, 255);
-		vars->color.b = ft_clamp(vars->color.b, 0, 255);
 	}
+	else
+	{
+		vars->color.r *= plane.r;
+		vars->color.r *= plane.g;
+		vars->color.r *= plane.b;
+	}
+	vars->color.r = ft_clamp(vars->color.r, 0, 255);
+	vars->color.g = ft_clamp(vars->color.g, 0, 255);
+	vars->color.b = ft_clamp(vars->color.b, 0, 255);
 }
 
 int	calculate_plane_color(t_ray ray, t_vars *vars, t_pl plane, double t_plane)

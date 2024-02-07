@@ -6,7 +6,7 @@
 /*   By: priezu-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:14:49 by priezu-m          #+#    #+#             */
-/*   Updated: 2024/01/29 15:27:10 by priezu-m         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:35:27 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,5 @@ void	set_camera(char *filename, t_parameters *parameters)
 		return ;
 	}
 	set_camera_internal(parameters, fileno);
-	parameters->camera.field_of_view *= M_PI / 180.L;
 	close(fileno);
 }

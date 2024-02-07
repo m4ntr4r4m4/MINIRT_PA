@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/29 15:25:09 by priezu-m         ###   ########.fr       */
+/*   Updated: 2024/02/07 16:36:38 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,25 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 			vars->color.r += (sphere.r * cos_angle) * vars->light.ratio;
 			vars->color.g += (sphere.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (sphere.b * cos_angle) * vars->light.ratio;
+			printf("not shadowed\n");
 		}
-		vars->color.r = ft_clamp(vars->color.r, 0, 255);
-		vars->color.g = ft_clamp(vars->color.g, 0, 255);
-		vars->color.b = ft_clamp(vars->color.b, 0, 255);
 	}
+	else
+	{
+		vars->color.r *= sphere.r;
+		vars->color.g *= sphere.g;
+		vars->color.b *= sphere.b;
+	}
+	vars->color.r = ft_clamp(vars->color.r, 0, 255);
+	vars->color.g = ft_clamp(vars->color.g, 0, 255);
+	vars->color.b = ft_clamp(vars->color.b, 0, 255);
 }
 
 void	calculate_ambient(t_vars *vars)
 {
-	vars->color.r = vars->ambient.ratio * vars->ambient.r;
-	vars->color.g = vars->ambient.ratio * vars->ambient.g;
-	vars->color.b = vars->ambient.ratio * vars->ambient.b;
+	vars->color.r = vars->ambient.ratio * vars->ambient.r / 255;
+	vars->color.g = vars->ambient.ratio * vars->ambient.g / 255;
+	vars->color.b = vars->ambient.ratio * vars->ambient.b / 255;
 }
 
 int	calculate_sphere_color(t_ray ray, t_vars *vars, \
