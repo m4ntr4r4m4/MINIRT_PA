@@ -27,7 +27,7 @@ int	check_shadow_sp(char *add, t_vars *vars, t_vec p, t_ablight light)
 		if (strlen(add) && !strcmp((char *)&vars->spheres[i], add))
 			continue ;
 		sphere_intersaction(shadow, &t, vars->spheres[i]);
-		if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
+		if (t > 1e-6 && t < veclength(vecminus(light.origin, p)))
 			return (1);
 	}
 	return (0);
@@ -48,7 +48,7 @@ int	check_shadow_pl(char *add, t_vars *vars, t_vec p, t_ablight light)
 		if (strlen(add) && !strcmp((char *)&vars->planes[i], add))
 			continue ;
 		plane_intersaction(shadow, &t, vars->planes[i]);
-		if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
+		if (t > 1e-6 && t < veclength(vecminus(light.origin, p)))
 			return (1);
 		i++;
 	}
@@ -70,7 +70,7 @@ int	check_shadow_cy(char *add, t_vars *vars, t_vec p, t_ablight light)
 		if (strlen(add) && !strcmp((char *)&vars->cylanders[i], add))
 			continue ;
 		cylinder_intersaction(shadow, &t, vars->cylanders[i]);
-		if (t > 1e-4 && t < veclength(vecminus(light.origin, p)))
+		if (t > 1e-6 && t < veclength(vecminus(light.origin, p)))
 			return (1);
 		i++;
 	}
