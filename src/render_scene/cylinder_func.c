@@ -86,9 +86,7 @@ void	calculate_diffuse_cy(t_vec p, t_vec n, t_vars *vars, t_cy cylinder)
 		vars->color.g *= cylinder.g;
 		vars->color.b *= cylinder.b;
 	}
-	vars->color.r = ft_clamp(vars->color.r, 0, 255);
-	vars->color.g = ft_clamp(vars->color.g, 0, 255);
-	vars->color.b = ft_clamp(vars->color.b, 0, 255);
+	vars->color = ft_clamping(cylinder.r, cylinder.g, cylinder.b, vars);
 }
 
 t_vec	cy_normal(t_vec p, t_cy cylinder)

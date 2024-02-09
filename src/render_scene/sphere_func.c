@@ -66,9 +66,7 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 		vars->color.g *= sphere.g;
 		vars->color.b *= sphere.b;
 	}
-	vars->color.r = ft_clamp(vars->color.r, 0, 255);
-	vars->color.g = ft_clamp(vars->color.g, 0, 255);
-	vars->color.b = ft_clamp(vars->color.b, 0, 255);
+	vars->color = ft_clamping(sphere.r, sphere.g, sphere.b, vars);
 }
 
 void	calculate_ambient(t_vars *vars)

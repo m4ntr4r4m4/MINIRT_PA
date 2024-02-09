@@ -48,9 +48,7 @@ void	calculate_diffuse_plane(t_vec p, t_vec n, t_vars *vars, t_pl plane)
 		vars->color.r *= plane.g;
 		vars->color.r *= plane.b;
 	}
-	vars->color.r = ft_clamp(vars->color.r, 0, 255);
-	vars->color.g = ft_clamp(vars->color.g, 0, 255);
-	vars->color.b = ft_clamp(vars->color.b, 0, 255);
+	vars->color = ft_clamping(plane.r, plane.g, plane.b, vars);
 }
 
 int	calculate_plane_color(t_ray ray, t_vars *vars, t_pl plane, double t_plane)

@@ -159,6 +159,8 @@ t_vec			vector_to_vec(t_vector	vector);
 double			ft_min(double x, double y);
 double			ft_max(double x, double y);
 double			ft_clamp(double x, double min, double max);
+t_acolor		ft_clamping(int r, int g, int b, t_vars *vars);
+
 // MLX FUNCTIONS
 int				create_trgb(int t, int r, int g, int b);
 unsigned int	ft_color_obj(t_vars *vars, t_ray ray);
