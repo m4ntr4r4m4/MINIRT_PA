@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/01/29 16:21:14 by priezu-m         ###   ########.fr       */
+/*   Updated: 2024/02/09 08:57:28 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	render_scene_in_buffer(t_parameters parameters, \
 
 	vars = init_vars(parameters);
 	i = 0;
-	printf("FOV %f\n",vars.camera.fov);
 	while (i < height * width)
 	{
-		u = (((double)(i % width) / width) - 0.5) * tan((vars.camera.fov / 2 * M_PI / 180)) * 2;
+		u = (((double)(i % width) / width) - 0.5) * \
+			tan((vars.camera.fov / 2 * M_PI / 180)) * 2;
 		v = ((double)(((double)i / width) / height) \
 			- 0.5) * tan((vars.camera.fov / 2 * M_PI / 180)) * 2;
 		v *= -1 * (double)(width / height);
