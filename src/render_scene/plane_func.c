@@ -33,6 +33,9 @@ void	calculate_diffuse_plane(t_vec p, t_vec n, t_vars *vars, t_pl plane)
 
 	light_dir = vecnormalize(vecminus(vars->light.origin, p));
 	cos_angle = vecdot(n, light_dir);
+	vars->color.r *= plane.r;
+	vars->color.g *= plane.g;
+	vars->color.b *= plane.b;
 	if (cos_angle > 0)
 	{
 		if (!shadowed(vars, p, vars->light, (char *)&plane))
@@ -41,12 +44,6 @@ void	calculate_diffuse_plane(t_vec p, t_vec n, t_vars *vars, t_pl plane)
 			vars->color.g += (plane.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (plane.b * cos_angle) * vars->light.ratio;
 		}
-	}
-	else
-	{
-		vars->color.r *= plane.r;
-		vars->color.r *= plane.g;
-		vars->color.r *= plane.b;
 	}
 	vars->color = ft_clamping(plane.r, plane.g, plane.b, vars);
 }

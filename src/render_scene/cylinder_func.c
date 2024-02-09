@@ -71,6 +71,9 @@ void	calculate_diffuse_cy(t_vec p, t_vec n, t_vars *vars, t_cy cylinder)
 
 	light_direction = vecnormalize(vecminus(vars->light.origin, p));
 	cos_angle = fabs(vecdot(n, light_direction));
+	vars->color.r *= cylinder.r;
+	vars->color.g *= cylinder.g;
+	vars->color.b *= cylinder.b;
 	if (cos_angle > 0.0)
 	{
 		if (!shadowed(vars, p, vars->light, (char *)&cylinder))
@@ -79,12 +82,6 @@ void	calculate_diffuse_cy(t_vec p, t_vec n, t_vars *vars, t_cy cylinder)
 			vars->color.g += (cylinder.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (cylinder.b * cos_angle) * vars->light.ratio;
 		}
-	}
-	else
-	{
-		vars->color.r *= cylinder.r;
-		vars->color.g *= cylinder.g;
-		vars->color.b *= cylinder.b;
 	}
 	vars->color = ft_clamping(cylinder.r, cylinder.g, cylinder.b, vars);
 }

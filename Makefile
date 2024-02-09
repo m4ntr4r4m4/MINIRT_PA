@@ -1,23 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                                              #
-#    Makefile                                           :+:      :+:    :+:    #
-#    Author:   Peru Riezu <riezumunozperu@gmail.com>                           #
-#    github:   https://github.com/priezu-m                                     #
-#    Licence:  GPLv3                                                           #
-#    Created:  2023/09/27 18:57:07                                             #
-#    Updated: 2024/02/07 17:23:05 by ahammoud         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 #GNU Make 3.81
 
 ################################################################################
 
 SHELL :=			bash
 CC :=				gcc
-#CFLAGS :=			-g	-O2  -Wall -Wextra -Werror -fsanitize=address,undefined
-CFLAGS :=			-g
+CFLAGS :=			-g	-O2  -Wall -Wextra -Werror -fsanitize=address,undefined
 LDFLAGS :=			-lmlx -framework OpenGL -framework Appkit
 
 ################################################################################
