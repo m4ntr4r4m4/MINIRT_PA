@@ -6,7 +6,7 @@
 /*   By: ahammoud <ahammoud@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 10:27:16 by ahammoud          #+#    #+#             */
-/*   Updated: 2024/02/07 16:36:38 by ahammoud         ###   ########.fr       */
+/*   Updated: 2024/02/09 09:01:56 by ahammoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	calculate_diffuse(t_vec p, t_vec n, t_vars *vars, t_sp sphere)
 			vars->color.r += (sphere.r * cos_angle) * vars->light.ratio;
 			vars->color.g += (sphere.g * cos_angle) * vars->light.ratio;
 			vars->color.b += (sphere.b * cos_angle) * vars->light.ratio;
-			printf("not shadowed\n");
 		}
 	}
 	else
