@@ -29,8 +29,8 @@ The .rt file describes the scene by defining its elements, with each element def
 Elements can be separated by any number of empty lines, and the descriptors of each element, i.e.,
 the information about the element can be separated by any number of spaces.  There is no specific order
 in which elements must be declared, but each type of element has a specific order of descriptors that must be
-followed, after the last descriptor, all the text of the line is ignored, so comments can be written.
-Floating-point values in the .rt file must be formatted to fully match the regex
+followed. After the last descriptor, all the following text of the line is ignored, so comments can be written.
+Floating-point values in .rt files must be formatted to fully match the regex
 (-?[0-9]{0,19}(\\\.[0-9]{1,18})?), e.g. 1.124, -0.1234.
 .P
 The elements that can be defined are:
