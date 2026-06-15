@@ -53,7 +53,7 @@ static bool	check_for_space_float(char c, bool *parsing_error,
 static t_sphere	parse_sphere(t_line *line, bool *parsing_error,
 								size_t lineno)
 {
-	t_sphere	sphere;
+	t_sphere	sphere = {0};
 	int			i;
 
 	i = 0;

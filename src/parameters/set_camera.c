@@ -54,7 +54,7 @@ static void	field_of_view_check(t_camera camera, char c, bool *parsing_error,
 
 static t_camera	parse_camera(t_line *line, bool *parsing_error, size_t lineno)
 {
-	t_camera	camera;
+	t_camera	camera = {0};
 	int			i;
 
 	i = 0;

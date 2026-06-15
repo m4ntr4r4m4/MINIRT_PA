@@ -38,7 +38,7 @@ static bool	check_for_space_float(char c, bool *parsing_error,
 static t_ambient_lighting	parse_lighting(t_line *line, bool *parsing_error,
 								size_t lineno)
 {
-	t_ambient_lighting	ambient_lighting;
+	t_ambient_lighting	ambient_lighting = {0};
 	int					i;
 
 	i = 0;

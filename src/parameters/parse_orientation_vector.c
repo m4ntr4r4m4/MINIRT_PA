@@ -51,7 +51,7 @@ static void	check_normal(t_vector orientation, bool *parsing_error,
 t_vector	parse_orientation_vector(t_line *line, int *i, bool *parsing_error,
 				size_t lineno)
 {
-	t_vector	orientation;
+	t_vector	orientation = {0};
 
 	orientation.x = parse_float(line, i, parsing_error, lineno);
 	if ((*parsing_error == true)

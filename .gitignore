@@ -1,0 +1,14 @@
+# Build artifacts
+/OBJ/
+/DEP/
+/miniRT
+/miniRT.dSYM/
+
+# Bundled MiniLibX (clone separately — see README)
+/minilibx-linux/
+
+# Editor / misc
+*.o
+*.a
+*.un~
+tags

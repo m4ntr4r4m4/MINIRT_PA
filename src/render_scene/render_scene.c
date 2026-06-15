@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "render_scene.h"
+#include "../libft/libft.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -95,6 +96,7 @@ void	render_scene(t_parameters parameters)
 		mlx_put_image_to_window(connection_id, window_id, img_id, 0, 0);
 		mlx_loop(connection_id);
 	}
-	write(STDERR_FILENO, "This system not supported, aborting\n", 35);
+	else
+		ft_putstr_fileno(STDERR_FILENO, "This system not supported, aborting\n");
 	destroy_and_exit(&hook_parameters);
 }

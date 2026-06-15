@@ -15,5 +15,6 @@
 
 void	ft_putstr_fileno(int fileno, const char *str)
 {
-	write(fileno, str, ft_strlen(str));
+	if (write(fileno, str, ft_strlen(str)) < 0)
+		return ;
 }

@@ -78,7 +78,7 @@ static bool	parse_cylinder_helper(t_line *line, int *i, size_t lineno,
 t_cylinder	parse_cylinder(t_line *line, bool *parsing_error,
 								size_t lineno)
 {
-	t_cylinder	cylinder;
+	t_cylinder	cylinder = {0};
 	int			i;
 
 	i = 0;

@@ -5,7 +5,22 @@
 SHELL :=			bash
 CC :=				gcc
 CFLAGS :=			-g	-O2  -Wall -Wextra -Werror -fsanitize=address,undefined
-LDFLAGS :=			-lmlx -framework OpenGL -framework Appkit
+
+# Platform-specific MiniLibX flags.
+# macOS uses the system MiniLibX (OpenGL/AppKit frameworks); Linux uses the
+# bundled minilibx-linux (X11). On Linux, if libX11/libXext live outside the
+# default linker path (e.g. a conda env), point the linker at them with:
+#   make LIBRARY_PATH=/path/to/lib
+UNAME :=			$(shell uname)
+INC :=
+ifeq ($(UNAME), Darwin)
+LDFLAGS :=			-lmlx -framework OpenGL -framework AppKit
+else
+MLX_DIR :=			./minilibx-linux
+INC :=				-I$(MLX_DIR)
+CFLAGS +=			$(INC)
+LDFLAGS :=			-L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+endif
 
 ################################################################################
 
@@ -15,7 +30,7 @@ DEP_PATH :=			./DEP
 DEP_PATH_MAKE :=	DEP/
 OBJ_PATH :=			./OBJ
 
-EXCLUDE_DIRS :=		$(DEP_PATH) $(OBJ_PATH) ./.git
+EXCLUDE_DIRS :=		$(DEP_PATH) $(OBJ_PATH) ./.git ./minilibx-linux
 EXCLUDE_FILES :=	./tags
 
 LIBFT_PATH :=		..
@@ -58,7 +73,7 @@ $(OBJ_PATH)/%.o: %.c
 
 $(DEP_PATH)/%.d: %.c | $(NEW_DIRS)
 	@rm -f $(DEP_PATH)/$@; \
-		$(CC) -M $< > $@.tmp; \
+		$(CC) $(INC) -M $< > $@.tmp; \
 		sed 's,$(notdir $*).o[ :]*,$(OBJ_PATH)/$(subst $(DEP_PATH_MAKE),,$(basename $@).o) $@ : ,g' \
 	   	< $@.tmp > $@; \
 		rm -f $@.tmp

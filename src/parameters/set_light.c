@@ -52,7 +52,7 @@ static bool	check_for_space_float(char c, bool *parsing_error,
 static t_light	parse_light(t_line *line, bool *parsing_error,
 								size_t lineno)
 {
-	t_light	light;
+	t_light	light = {0};
 	int		i;
 
 	i = 0;

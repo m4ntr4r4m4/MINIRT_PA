@@ -21,5 +21,6 @@ void	print_usage(void)
 		"for more information on how a SCENE_FILE should look, see\n"
 		"man minirt(1)\n";
 
-	write(STDOUT_FILENO, msg, sizeof(msg));
+	if (write(STDOUT_FILENO, msg, sizeof(msg)) < 0)
+		return ;
 }

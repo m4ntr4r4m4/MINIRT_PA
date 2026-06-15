@@ -34,7 +34,7 @@ static bool	check_comma(t_line *line, int *i, bool *parsing_error,
 t_vector	parse_coordinates(t_line *line, int *i, bool *parsing_error,
 					size_t lineno)
 {
-	t_vector	coordinates;
+	t_vector	coordinates = {0};
 
 	coordinates.x = parse_float(line, i, parsing_error, lineno);
 	if ((*parsing_error == true) || (check_comma(line, i, parsing_error, lineno)

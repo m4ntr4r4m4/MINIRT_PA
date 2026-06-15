@@ -49,5 +49,6 @@ void	ft_putnbr_fileno(int fileno, uintmax_t nbr)
 		magnitude /= 10;
 		i++;
 	}
-	write(fileno, str, (size_t)i);
+	if (write(fileno, str, (size_t)i) < 0)
+		return ;
 }

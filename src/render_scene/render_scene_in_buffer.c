@@ -14,7 +14,6 @@
 #include "ray.h"
 #include "stdlib.h"
 #include <math.h>
-#include <stdio.h>
 
 unsigned int	trace_ray(t_vars *vars, t_ray ray)
 {
@@ -53,17 +52,11 @@ t_vars	init_vars(t_parameters params)
 	t_vars	vars;
 
 	copy_light(&vars, params.light);
-	printf("1\n");
 	copy_ambient(&vars, params);
-	printf("2\n");
 	copy_camera(&vars, params);
-	printf("3\n");
 	copy_sphere(&vars, params.sphere_list);
-	printf("4\n");
 	copy_cy(&vars, params.cylinder_list);
-	printf("5\n");
 	copy_plane(&vars, params.plane_list);
-	printf("6\n");
 	return (vars);
 }
 
@@ -94,5 +87,4 @@ void	render_scene_in_buffer(t_parameters parameters, \
 		free(vars.cylanders);
 	if (vars.pl_size)
 		free(vars.planes);
-	printf("DONE!\n");
 }

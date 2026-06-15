@@ -37,7 +37,7 @@ static bool	check_space(t_line *line, int i, bool *parsing_error,
 static t_plane	parse_plane(t_line *line, bool *parsing_error,
 								size_t lineno)
 {
-	t_plane	plane;
+	t_plane	plane = {0};
 	int		i;
 
 	i = 0;

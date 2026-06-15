@@ -58,7 +58,7 @@ static void	check_for_space(t_line *line, int *i, bool *parsing_error,
 
 t_color	parse_color(t_line *line, int *i, bool *parsing_error, size_t lineno)
 {
-	t_color	color;
+	t_color	color = {0};
 
 	color.r = get_color(line, i, parsing_error);
 	if (line->line[(*i)++] != ',' || *parsing_error == true)
